@@ -25,7 +25,7 @@ export default function Rockets() {
     <SafeAreaView style={{
       width: '100%',
       height: "100%",
-      backgroundColor: "white"
+      backgroundColor: "black"
     }}>
       <Header />
       <ScrollView style={{

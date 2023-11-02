@@ -16,12 +16,13 @@ export default function Header() {
       alignItems: 'center',
       flexDirection: 'row'
     }}>
-      <Image
+      {/* <Image
         source={require('../assets/logo.png')}
         resizeMode='contain'
         style={{ height: 30, width: "60%", marginLeft: 14 }}
       />
- 
+  */}
+  <Text style={{color:'white',fontSize:24,fontWeight:900,marginLeft:10}}>SPACEMEDIA</Text>
     </View>
   );
 }

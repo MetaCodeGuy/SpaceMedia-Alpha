@@ -11,14 +11,21 @@ export default function SearchFeedCard({ dat }) {
     <View onTouchEnd={() => {
       nav.navigate("FeedPage", { dat })
     }}
-      style={{ width: "43%", maxWidth: 200, borderRadius: 10, margin: 10, height: 150 }}>
+      style={{ width: "100%", 
+      borderRadius: 10, margin:1,marginBottom:15, height:250}}>
 
       <Image
         source={{ uri: dat.links[0].href }}
-        style={{ borderRadius: 10, marginBottom: 10, width: "100%", height: "100%" }}
-        resizeMode="cover"
+        style={{ borderRadius: 10, width: "100%", height: "100%" }}
+        resizeMode="contain"
       />
-      <Text style={{ position: 'absolute', padding: 5, color: 'white', bottom: 0, zIndex: 10 }}>{dat.data[0].title?.slice(0, 50)}...</Text>
+      <Text style={{ 
+        fontSize:18,
+        width:"100%", 
+         position: 'absolute' ,
+         backgroundColor:'black',
+         padding: 5,fontWeight:900, color: 'white', bottom: 0, 
+         zIndex: 10, }}>{dat.data[0].title?.slice(0, 50)}...</Text>
     </View>
   )
   else {

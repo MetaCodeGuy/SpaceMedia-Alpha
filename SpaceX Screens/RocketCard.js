@@ -15,7 +15,7 @@ export default function RocketCard({ img, name, dat }) {
         resizeMode='cover'
         style={{ width: '100%', height: '95%', borderRadius: 10 }}
       />
-      <Text style={{ textAlign: 'center', fontWeight: '900' }}>{name}</Text>
+      <Text style={{ textAlign: 'center', fontWeight: '900',color:'white' }}>{name}</Text>
     </View>
   );
 }

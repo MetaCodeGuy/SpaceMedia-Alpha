@@ -9,13 +9,15 @@ export default function LaunchCard({ img, name, data }) {
     <TouchableOpacity
       onPress={() => nav.navigate("LaunchMedia", { data })}
       style={{
-        width: 150,
-        borderRadius: 10,
-        elevation: 5,
+        width: "48%",
+        borderRadius: 10, 
         display: 'flex',
         borderRadius: 10,
-        backgroundColor:'white',
-        margin: 5,
+        backgroundColor:'black',
+        margin: 1,
+        borderColor:'white',
+        marginVertical:10,
+        borderWidth:1,
         flexDirection: 'column',
         justifyContent: 'space-evenly',
         alignItems: 'center',
@@ -27,7 +29,7 @@ export default function LaunchCard({ img, name, data }) {
         resizeMode='cover'
         style={{ width: 80, height: 80 }}
       />
-      <Text>{name.slice(0, 10)}...</Text>
+      <Text style={{color:'white'}}>{name.slice(0, 25)}...</Text>
     </TouchableOpacity>
   );
 }

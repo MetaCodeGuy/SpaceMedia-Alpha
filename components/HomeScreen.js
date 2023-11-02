@@ -19,7 +19,7 @@ export default function HomeScreen() {
       flexDirection:"column",
       justifyContent:"start",
       alignItems:'center',
-      backgroundColor:'white',
+      backgroundColor:'black',
   }}>
        <Header />
        <APOD/> 

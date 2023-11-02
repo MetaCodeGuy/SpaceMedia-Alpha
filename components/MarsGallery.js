@@ -30,24 +30,25 @@ export default function MarsGallery({ route }) {
     () => { }
   }, [Page,index])
   return (
-    <SafeAreaView style={{ backgroundColor: 'white', width: '100%', height: '100%' }}>
+    <SafeAreaView style={{ backgroundColor: 'black', width: '100%', height: '100%' }}>
       <Header />
-      <View style={{ width: '100%', height: '85%' }}>
+      <View style={{ width: '100%', height: '85%',backgroundColor:'black'}}>
         <Text style={{ color: 'gray', textAlign: 'center' }}>Showing Page <Text>{Page}</Text> of <Text>{6}</Text></Text>
 
-        <View style={{ width: '100%', height: "100%" }}>
+        <View style={{ width: '100%', height: "100%" ,backgroundColor:'black',}}>
 
           <ScrollView contentContainerStyle={{
             flexShrink: 1,
             flexWrap: 'wrap',
             flexDirection: 'row',
             alignItems: 'flex-start',
+            backgroundColor:'black',
             justifyContent: "space-evenly"
           }}
 
 
             style={{
-              backgroundColor: "white",
+              backgroundColor: "black",
               width: "100%", height: "100%",
               display: 'flex',
               flexDirection: 'row',

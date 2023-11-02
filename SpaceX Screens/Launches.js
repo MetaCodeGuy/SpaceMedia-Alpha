@@ -6,10 +6,6 @@ import LaunchCard from './LaunchCard';
 import Header from '../components/Header';
 
 export default function Launches() {
-
-
-
-
   const [LaunchData, setLaunchData] = useState()
   const [StartIndex, setStartIndex] = useState(0)
   const [EndIndex, setEndIndex] = useState(10)
@@ -28,9 +24,9 @@ export default function Launches() {
 
 
   return (
-    <View style={{ width: '100%', height: '100%', backgroundColor: 'white' }}>
+    <View style={{ width: '100%', height: '100%', backgroundColor: 'black' }}>
       <Header />
-      <Text style={{ color: 'black', textAlign: 'center' }}>Showing Page {StartIndex / 10 + 1} of {Math.floor(LaunchData?.length / 10)}</Text>
+      <Text style={{ color: 'white', textAlign: 'center' }}>Showing Page {StartIndex / 10 + 1} of {Math.floor(LaunchData?.length / 10)}</Text>
       <ScrollView style={{
         flex: 1,
         flexWrap: "wrap",

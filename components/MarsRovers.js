@@ -9,11 +9,12 @@ export default function MarsRovers() {
     <View style={{
       width: '100%', height: "40%",
       maxHeight: 300,
-      backgroundColor: 'white',
+      backgroundColor: 'black',
     }}>
       <Text style={{
         fontWeight: "900",
         fontSize: 16,
+        color:'white',
         marginVertical: 5,
         marginLeft: 14
       }}>Mars</Text>

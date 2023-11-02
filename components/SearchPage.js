@@ -26,10 +26,15 @@ export default function SearchPage() {
         GetFeed();
     }, [Update, Index])
     return (
-        <View style={{ width: '100%', height: '100%', backgroundColor: 'white' }}>
+        <View style={{ width: '100%', height: '100%',
+         backgroundColor: 'black' }}>
             <Header />
 
-            <View style={{ width: '100%', marginBottom: 6, display: 'flex', maxHeight: 50, minHeight: 50, flexDirection: 'row', justifyContent: 'center', alingItems: 'center', height: '10%' }}>
+            <View style={{ width: '100%', 
+            marginBottom: 6, display: 'flex',
+             maxHeight: 50, minHeight: 50,
+              flexDirection: 'row', justifyContent: 'center',
+               alingItems: 'center', height: '10%' }}>
                 <TextInput
                     inputMode="text"
                     onChangeText={(txt) => setQuery(txt)}
@@ -52,10 +57,10 @@ export default function SearchPage() {
                 style={{ width: '100%', display: 'flex' }}
             >
                 {
-                    Feeds && Loaded ? Feeds.map((dat,index) => {
+                    Feeds && Loaded  ? Feeds.map((dat,index) => {
                         return <SearchFeedCard key={index} dat={dat} />
                     }) : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => {
-                        return <Skeleton style={{ borderRadius: 10, margin: 10 ,maxWidth:200}} width={"40%"}  height={150} />
+                        return <Skeleton style={{ borderRadius: 10, margin:1,marginVertical:10 }} width={"95%"}  height={250} />
                     })
                 }
                 {Loaded ? <Button color={"black"} buttonStyle={{marginTop:10}} title={"show more"} onPress={() => { setIndex(prev => prev + 30) }} /> : undefined}

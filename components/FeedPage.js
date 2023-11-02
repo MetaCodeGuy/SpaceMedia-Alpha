@@ -30,7 +30,9 @@ export default function FeedPage({ route }) {
     }, [])
 
     return (
-        <View style={{ width: '100%', backgroundColor: 'white', flexDirection: 'column', height: '100%', display: 'flex', alignItems: 'center' }}>
+        <View style={{ width: '100%', 
+        backgroundColor: 'black'
+        , flexDirection: 'column', height: '100%', display: 'flex', alignItems: 'center' }}>
             <Header />
 
             <Video
@@ -39,15 +41,16 @@ export default function FeedPage({ route }) {
                 useNativeControls
                 onLoadStart={() => { }}
                 posterSource={Posters[0]}
-                resizeMode='contain'
+                resizeMode='stretch'
 
                 videoStyle={{ borderRadius: 10 }}
-                style={{ width: "95%", borderRadius: 10, backgroundColor: "black", height: "40%" }}
+                style={{ width: "95%", borderRadius: 10, 
+                backgroundColor: "black", height: "30%" }}
             />
 
             <ScrollView style={{ padding: 10 }}>
-                <Text style={{ padding: 10, fontWeight: '900', fontSize: 20 }}>{data.dat.data[0].title}</Text>
-                <Text style={{ padding: 10, fontSize: 16 }}>{data.dat.data[0].description}</Text>
+                <Text style={{ padding: 10, fontWeight: '900',color:'white' ,fontSize: 20 }}>{data.dat.data[0].title}</Text>
+                <Text style={{ padding: 10, fontSize: 16,color:'white' , }}>{data.dat.data[0].description}</Text>
 
                 <Button
                     title={"Download_Video"}

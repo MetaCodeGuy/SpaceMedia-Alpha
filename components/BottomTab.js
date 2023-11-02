@@ -12,29 +12,35 @@ export default MyBottomNav = () => {
 
     return (
         <Tab.Navigator initialRouteName='Home' >
-            <Tab.Screen name="Home" options={{
+            <Tab.Screen name="Home"  options={{
+       tabBarActiveBackgroundColor:"white",
+       tabBarInactiveBackgroundColor:'black',
                 headerShown: false, tabBarIcon: ({ focused }) => {
-                    return <AntDesign name="home" size={24} color={focused ? "#00C2DC" : "black"} />
-                }, tabBarActiveTintColor: '#00C2DC'
+                    return <AntDesign name="home" size={24} color={focused ? "black" :"white"} />
+                }, tabBarActiveTintColor: 'black'
             }}
                 component={HomeScreen} />
 
 
             <Tab.Screen name="Search"
                 options={{
+                    tabBarActiveBackgroundColor:"white",
+                    tabBarInactiveBackgroundColor:'black',
                     headerShown: false, tabBarIcon: ({ focused }) => {
-                        return <Octicons name="search" size={24} color={focused ? "#00C2DC" : "black"} />
+                        return <Octicons name="search" size={24} color={focused ? "black" :"white"} />
                     },
-                    tabBarActiveTintColor: '#00C2DC'
+                    tabBarActiveTintColor: 'black'
                 }} component={SearchPage} />
 
 
             <Tab.Screen name="Rockets"
                 options={{
+                    tabBarActiveBackgroundColor:"white",
+                    tabBarInactiveBackgroundColor:'black',
                     headerShown: false, tabBarIcon: ({ focused }) => {
-                        return <AntDesign name="rocket1" size={24} color={focused ? "#00C2DC" : "black"} />
+                        return <AntDesign name="rocket1" size={24} color={focused ? "black" :"white"} />
                     },
-                    tabBarActiveTintColor: '#00C2DC'
+                    tabBarActiveTintColor: 'black'
                 }} component={Rockets} />
 
 
@@ -42,12 +48,14 @@ export default MyBottomNav = () => {
 
             <Tab.Screen name="Launches"
                 options={{
+                    tabBarActiveBackgroundColor:"white",
+                    tabBarInactiveBackgroundColor:'black',
                     headerShown: false,
-                    tabBarActiveTintColor: '#00C2DC',
+                    tabBarActiveTintColor: 'black',
                     tabBarIcon: ({ focused }) => {
                         return <Ionicons
                             name='planet-outline' size={26}
-                            color={focused ? "#00C2DC" : "black"} />
+                            color={focused ? "black" :"white"} />
                     }
                 }}
                 component={Launches} />

@@ -11,7 +11,7 @@ export default function Rover({ route }) {
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
-      backgroundColor: 'white',
+      backgroundColor: 'black',
       alignItems: 'center',
       height: "100%"
     }}>
@@ -22,7 +22,8 @@ export default function Rover({ route }) {
           resizeMode='cover'
           style={{ width: '95%', height: "100%", borderRadius: 15 }}
         />
-        <Text style={{ marginTop: 5, fontSize: 24, fontWeight: '900' }}>{title}</Text>
+        <Text style={{ marginTop: 5,
+          color:'white', fontSize: 24, fontWeight: '900' }}>{title}</Text>
       </View>
 
 
@@ -38,10 +39,12 @@ export default function Rover({ route }) {
         <TextInput keyboardType='number-pad'
           placeholder='1000'
           inputMode="numeric"
+          autoFocus
           style={{
             padding: 10,
             fontWeight: '800',
             fontSize: 18,
+            color:'white',
             paddingHorizontal: 10,
             textAlign: 'center',
             borderRadius: 30,
@@ -52,7 +55,7 @@ export default function Rover({ route }) {
           onChangeText={(txt) => setSol(txt)}
           maxLength={4}
         />
-        <Text style={{ fontSize: 24, fontWeight: "700" }}>
+        <Text style={{ fontSize: 24, fontWeight: "700" ,color:'white'}}>
           Which Sol You Want to See?
         </Text>
       </View>

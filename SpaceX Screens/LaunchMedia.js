@@ -28,30 +28,32 @@ export default function LaunchMedia({ route }) {
             height: '100%',
             display: 'flex',
             flexDirection: 'column',
-            backgroundColor: 'white',
+            backgroundColor: 'black',
             alignItems: 'center'
         }}>
             <Header />
             <YoutubePlayer
                 height={"30%"}
                 width={'90%'}
-
+                
                 webViewStyle={{ borderRadius: 10 }}
                 videoId={data.links.youtube_id}
-            />
+            /> 
+            <ScrollView style={{ width: '100%',backgroundColor:'black' }}
 
-
-            <ScrollView style={{ width: '100%' }} centerContent={true} contentContainerStyle={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+             centerContent={true} contentContainerStyle={{display:'flex',justifyContent:'center',alignItems:'center'}}>
 
                 <Text style={{ textAlign: 'center', fontWeight: '900', fontSize: 18 }}>{data.name}</Text>
-                <Text style={{ color: 'black', paddingHorizontal:8, fontSize: 16, fontWeight: '700' }}>
+                <Text style={{ color: 'white', paddingHorizontal:8, fontSize: 16, fontWeight: '700' }}>
                     {data.details || "No Failures!"}
                 </Text>
                 <View style={{
                     width: '90%',
                     height: 500,
                     marginVertical: 10,
-                    backgroundColor:'white',
+                    backgroundColor:'black',
+                    borderWidth:1,
+                    borderColor:'white',
                     display: 'flex',margin:'auto',
                     justifyContent: 'space-evenly',
                     borderRadius: 10,
@@ -59,7 +61,7 @@ export default function LaunchMedia({ route }) {
                     padding: 10,
                 }}>
 
-                    <Text style={{ color: "black", fontSize: 18, fontWeight: '900', textAlign: 'center' }}>PAYLOAD INFO</Text>
+                    <Text style={{ color: "red", fontSize: 18, fontWeight: '900', textAlign: 'center' }}>PAYLOAD INFORMATION</Text>
                     <Text style={styles.payloadInfo}>Name : <Text style={styles.payloadTitle}>{PayloadData?.name}</Text></Text>
                     <Text style={styles.payloadInfo}>Type : <Text style={styles.payloadTitle}>{PayloadData?.type}</Text></Text>
                     <Text style={styles.payloadInfo}>PayLoad_Mass : <Text style={styles.payloadTitle}>{PayloadData?.mass_kg}Kg</Text></Text>
@@ -67,8 +69,8 @@ export default function LaunchMedia({ route }) {
                     <Text style={styles.payloadInfo}>Customers : {PayloadData?.customers}</Text>
                     <Text style={styles.payloadInfo}>Manufacturers : {PayloadData?.manufacturers}</Text>
 
-                    <Text style={{ color: "black", fontSize: 18, fontWeight: '900', textAlign: 'center' }}>Rocket </Text>
-                    <Text style={{ color: "black", textAlign: 'center' }}>Click To View Rocket Info..</Text>
+                    <Text style={{ color: "white", fontSize: 18, fontWeight: '900', textAlign: 'center' }}>Rocket </Text>
+                    <Text style={{ color: "white", textAlign: 'center' }}>Click To View Rocket Info..</Text>
 
                 </View>
 
@@ -82,9 +84,10 @@ export default function LaunchMedia({ route }) {
 const styles = StyleSheet.create({
     payloadInfo: {
         fontWeight: '900',
-        fontSize: 16,
+        color:'white',
+        fontSize: 18,
     },
     payloadTitle: {
-        color: 'black'
+        color: 'green'
     }
 })
