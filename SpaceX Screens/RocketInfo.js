@@ -40,30 +40,32 @@ export default function RocketInfo({ route }) {
 
       </View>
 
-      <Text style={{ textAlign: 'center', 
+      
+
+      <ScrollView style={{
+        width: "100%",
+        borderWidth:1,
+        borderColor:'white',
+        marginVertical:15,
+        borderRadius: 10, 
+        padding: 10
+      }}
+      contentContainerStyle={{padding:10,margin:'auto'}}>
+        <Text style={{ textAlign: 'center', 
       fontWeight: '600',
       color:'white',
        fontSize: 18 }}>{dat.name}</Text>
       <Text style={{ textAlign: 'center' ,color:'white'}}>
         {dat.description}
       </Text>
-
-      <View style={{
-        width: "95%",
-        borderWidth:1,
-        borderColor:'white',
-        marginVertical:15,
-        borderRadius: 10, 
-        padding: 10
-      }}>
-        <Text style={{ fontWeight: 900,color:'white' ,fontSize: 28, textAlign: 'center' }}>Rocket Detail</Text>
-        <Text style={{color:'white',fontSize:22,fontWeight:600}}>Mass : {dat.mass.kg}kg</Text>
-        <Text style={{color:'white',fontSize:22,fontWeight:600}}>Cost_Per_Launch : ${dat.cost_per_launch}</Text>
-        <Text style={{color:'white',fontSize:22,fontWeight:600}}>Company : {dat.company}</Text>
-        <Text style={{color:'white',fontSize:22,fontWeight:600}}>PayLoad_Capacity : {dat.payload_weights[0].kg}Kg</Text>
-        <Text style={{color:'white',fontSize:22,fontWeight:600}}>PayLoad_Orbit :{dat.payload_weights[0].name}</Text>
-        <Text style={{color:'white',fontSize:22,fontWeight:600}}>Stages : {dat.stages}</Text>
-      </View>
+        <Text style={{ fontWeight: 900,color:'white' ,fontSize: 26, textAlign: 'center' }}>Rocket Detail</Text>
+        <Text style={{color:'white',fontSize:20,fontWeight:600}}>Mass : {dat.mass.kg}kg</Text>
+        <Text style={{color:'white',fontSize:20,fontWeight:600}}>Cost_Per_Launch : ${dat.cost_per_launch}</Text>
+        <Text style={{color:'white',fontSize:20,fontWeight:600}}>Company : {dat.company}</Text>
+        <Text style={{color:'white',fontSize:20,fontWeight:600}}>PayLoad_Capacity : {dat.payload_weights[0].kg}Kg</Text>
+        <Text style={{color:'white',fontSize:20,fontWeight:600}}>PayLoad_Orbit :{dat.payload_weights[0].name}</Text>
+        <Text style={{color:'white',fontSize:20,fontWeight:600}}>Stages : {dat.stages}</Text>
+      </ScrollView>
 
     </View>
   );

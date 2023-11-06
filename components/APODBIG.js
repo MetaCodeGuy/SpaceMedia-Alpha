@@ -4,6 +4,7 @@ import { View, Text, Image, ScrollView, SafeAreaView, Alert, Platform } from 're
 import { AppContext } from '../App';
 import Header from './Header';
 import { Button } from '@rneui/themed';
+import { HandleDownload } from './DownLoadImage';
 
 export default function APODBIG() {
     const data = useContext(AppContext)
@@ -29,14 +30,14 @@ export default function APODBIG() {
                     resizeMode="cover"
                     style={{
                         width: '95%',
-                        height: '40%', maxHeight: 250, borderRadius: 10,
-                        elevation: 1,
+                        height: '40%', maxHeight: 250,
+                         borderRadius: 10,
                     }}
                 />
-                <Text style={{color:'white', fontSize:26,fontWeight:900}}>{data[0].title}</Text>
+                
                 <View style={{
                     width: "95%",
-                    height: "40%",
+                    height: "50%",
                     display: 'flex', 
                     borderRadius: 10, 
                     justifyContent: 'space-evenly',
@@ -47,6 +48,7 @@ export default function APODBIG() {
                         padding: 10, 
                     }} bounces={false}
                         bouncesZoom={false}>
+                            <Text style={{color:'white', fontSize:26,fontWeight:900}}>{data[0].title}</Text>
                         <Text style={{
                             fontWeight: "900",
                             color: 'white',
@@ -67,6 +69,7 @@ export default function APODBIG() {
                                 padding: 10,
                                 marginBottom: 15
                             }}
+                            onPress={()=>HandleDownload(data[0].url)}
                             titleStyle={{ marginLeft: 10 }}
                             icon={<Octicons name="download" size={24}
                                 color="white" />}

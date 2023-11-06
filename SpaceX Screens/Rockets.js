@@ -40,8 +40,8 @@ export default function Rockets() {
         }}>
 
         {
-          RocketsData ? RocketsData.map((dat) => {
-            return <RocketCard img={dat.flickr_images[0]} dat={dat} name={dat.name} />
+          RocketsData ? RocketsData.map((dat,index) => {
+            return <RocketCard key={index} img={dat.flickr_images[0]} dat={dat} name={dat.name} />
           }) : undefined
         }
 

@@ -43,7 +43,7 @@ export default function FeedPage({ route }) {
                 posterSource={Posters[0]}
                 resizeMode='stretch'
 
-                videoStyle={{ borderRadius: 10 }}
+                videoStyle={{ borderRadius: 10 ,borderWidth:1,borderColor:'white'}}
                 style={{ width: "95%", borderRadius: 10, 
                 backgroundColor: "black", height: "30%" }}
             />
