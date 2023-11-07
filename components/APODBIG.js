@@ -25,7 +25,7 @@ export default function APODBIG() {
                 }}
             >
                 <Header />
-                <Image
+                {/* <Image
                     source={{ uri: data[0].url }}
                     resizeMode="cover"
                     style={{
@@ -33,8 +33,26 @@ export default function APODBIG() {
                         height: '40%', maxHeight: 250,
                          borderRadius: 10,
                     }}
-                />
-                
+                /> */}
+                {data[0].media_type =="video" ? 
+      <Image
+          source={require('../assets/adaptive-icon.png')}
+          resizeMode="contain"
+          style={{
+            width: '95%',
+            height: '40%', maxHeight: 250,
+             borderRadius: 10,
+        }}
+        />:
+       <Image
+          source={{ uri: data[0].url }}
+          resizeMode="cover"
+          style={{
+            width: '95%',
+            height: '40%', maxHeight: 250,
+             borderRadius: 10,
+        }}
+        />}
                 <View style={{
                     width: "95%",
                     height: "50%",

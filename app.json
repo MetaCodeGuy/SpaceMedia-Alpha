@@ -5,15 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "plugins": [
-      [
-        "expo-av",
-        {
-          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
-        }
-      ]
-    ],
+    "userInterfaceStyle": "dark", 
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "cover",
@@ -23,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nithish876876.SpaceMedia"
     },
     "android": {
       "adaptiveIcon": {
