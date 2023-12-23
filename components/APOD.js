@@ -8,7 +8,7 @@ export default function APOD() {
 
   const data = useContext(AppContext)
   const nav = useNavigation()
-  console.log(data[0].url);
+  console.log(data[0]);
   return (
     <>
       <View

@@ -1,4 +1,3 @@
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createContext, useEffect, useState } from 'react';
 import APODBIG from './components/APODBIG';

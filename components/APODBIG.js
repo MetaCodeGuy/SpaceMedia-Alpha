@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Octicons } from '@expo/vector-icons';
-import { View, Text, Image, ScrollView, SafeAreaView, Alert, Platform } from 'react-native';
+import { View, Text, Image, ScrollView, SafeAreaView, Alert, Platform, Pressable, Linking } from 'react-native';
 import { AppContext } from '../App';
 import Header from './Header';
 import { Button } from '@rneui/themed';
 import { HandleDownload } from './DownLoadImage';
+import { Ionicons } from '@expo/vector-icons/build/Icons';
 
 export default function APODBIG() {
     const data = useContext(AppContext)
@@ -35,15 +36,25 @@ export default function APODBIG() {
                     }}
                 /> */}
                 {data[0].media_type =="video" ? 
-      <Image
+      <Pressable
+      style={{ 
+        width: '100%',
+        height: '100%', maxHeight: 250
+    }}
+      onPress={()=>{
+        Linking.openURL(data[0].url)
+      }}
+      >
+        <Image
+      
           source={require('../assets/adaptive-icon.png')}
           resizeMode="contain"
           style={{
-            width: '95%',
-            height: '40%', maxHeight: 250,
+            width: '100%',
+            height: '100%', maxHeight: 250,
              borderRadius: 10,
         }}
-        />:
+        /></Pressable>:
        <Image
           source={{ uri: data[0].url }}
           resizeMode="cover"

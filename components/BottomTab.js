@@ -8,8 +8,7 @@ import { AntDesign, Ionicons } from '@expo/vector-icons';
 import SearchPage from './SearchPage';
 
 const Tab = createBottomTabNavigator();
-export default MyBottomNav = () => {
-
+export default function MyBottomNav(){ 
     return (
         <Tab.Navigator initialRouteName='Home' >
             <Tab.Screen name="Home"  options={{
@@ -62,4 +61,4 @@ export default MyBottomNav = () => {
         </Tab.Navigator>
 
     )
-}
+};
