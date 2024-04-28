@@ -1,69 +1,101 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState } from 'react';
 import { Octicons } from '@expo/vector-icons';
 import { useEffect } from 'react';
-import { View, Text, ScrollView   } from 'react-native';
-import { Video } from "expo-av" 
+import { View, Text, ScrollView, SafeAreaView, ActivityIndicator, FlatList } from 'react-native';
+import { Video } from "expo-av"
 import { Button } from '@rneui/themed';
 import Header from './Header';
 import { HandleDownload } from './DownLoadImage';
-export default function FeedPage({ route }) {
-    const video = React.useRef(null);
-    const [status, setStatus] = React.useState({});
+import GoBack from './GoBack';
+import { StatusBar } from 'expo-status-bar';
+export default function  FeedPage({ route }) { 
+    console.log('rendering');
     const [Videos, SetVideos] = useState([])
+   // const [ResizeMOde, setResizeMOde] = useState('cover') 
     const [Posters, setposters] = useState([])
-    const data = route.params
-
+    const data = route.params 
     const getFeed = () => {
-        fetch(data.dat.href)
-            .then((res) => res.json())
-            .then((dat) => {
-                dat.map((dat) => {
-                    if (dat.split('.')[3] === "mp4") SetVideos(prev => ([...prev, dat]))
-                    else if (dat.split('.')[3] === "jpg") setposters(prev => ([...prev, dat]))
-                    else return
-                })
+        // fetch(data.dat.href)
+            // .then((res) => res.json())
+            // .then((dat) => {
+                // dat.map((dat) => {
+                //     if (dat.split('.')[3] === "mp4"){
+                //          SetVideos(prev => ([...prev, dat]))
+                //         }
+                //     else if (dat.split('.')[3] === "jpg"){ setposters(prev => ([...prev, dat]))}
+                //     else return
+                // })
+               // console.log(dat[0]);
+            // })
+            fetch(data.dat.href).then((res)=>res.json()).then((dat)=>{
+               dat.map((link)=>{
+                if(link.split('.').includes('mp4')){
+                    SetVideos(link);  
+                }else if(link.split('.').includes('jpg')){
+                    setposters(link)
+                }
+               })
             })
     }
+
+
     useEffect(() => {
         getFeed();
-    }, [])
-
+    }, []) 
+    console.log("renderiing",new Date().getMinutes());
     return (
-        <View style={{ width: '100%', 
-        backgroundColor: 'black'
-        , flexDirection: 'column', height: '100%', display: 'flex', alignItems: 'center' }}>
-            <Header />
+        <SafeAreaView style={{
+            width: '100%',
+            flexDirection: 'column', height: '100%',
+            display: 'flex', alignItems: 'center',
+            justifyContent: 'center',
+            padding: 10
+        }}>
+               <StatusBar style='auto' />
+            <GoBack />
+            <ScrollView style={{ flex: 1 }}
+                contentContainerStyle={{ height: '100%', justifyContent: 'center', }}
+            > 
 
-            <Video
+                <Video 
+                    source={{ uri: Videos }}
+                    useNativeControls
+                    posterSource={Posters}
+                    resizeMode={'contain'}
+                    // onFullscreen={() => {
+                    //     setResizeMOde('contain')
+                    // }} 
+                    videoStyle={{
+                        borderRadius: 10,
+                        borderColor: 'white',
+                        height: "100%"
+                    }}
+                    style={{
+                        width: "100%", borderRadius: 10,
+                        height: "30%",
+                        backgroundColor:'black'
+                    }}
+                />
 
-                source={{ uri: Videos[Video.length - 1] }}
-                useNativeControls
-                onLoadStart={() => { }}
-                posterSource={Posters[0]}
-                resizeMode='stretch'
-             
-                videoStyle={{ borderRadius: 10 ,borderWidth:1,borderColor:'white'}}
-                style={{ width: "95%", borderRadius: 10, 
-                backgroundColor: "black", height: "30%" }}
-            />
+                <Text style={{ padding: 10, fontWeight: '900', fontSize: 20 }}>{data.dat.data[0].title}</Text>
+                <Text style={{
+                    padding: 10, fontSize: 16,
 
-            <ScrollView style={{ padding: 10 }}>
-                <Text style={{ padding: 10, fontWeight: '900',color:'white' ,fontSize: 20 }}>{data.dat.data[0].title}</Text>
-                <Text style={{ padding: 10, fontSize: 16,color:'white' , }}>{data.dat.data[0].description}</Text>
+                }}>{data?.dat.data[0].description}</Text>
 
                 <Button
                     title={"Download_Video"}
                     color={"#3A3A3A"}
-                    buttonStyle={{ marginVertical: 10 ,marginBottom:20}}
+                    buttonStyle={{ marginVertical: 10, marginBottom: 20 }}
                     onPress={() => {
-                        HandleDownload(Videos[Videos.length - 1])
+                        HandleDownload(Videos)
                     }}
                     icon={<Octicons name="download" color={'white'} style={{ margin: 5 }} size={24} />}
                 />
-            </ScrollView>
-
-
-        </View>
+            </ScrollView> 
+            
+         
+        </SafeAreaView>
     );
 }

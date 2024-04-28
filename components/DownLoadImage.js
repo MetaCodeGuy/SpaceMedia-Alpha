@@ -1,27 +1,27 @@
 import { shareAsync } from 'expo-sharing';
 import * as FileSystem from "expo-file-system"
-import { Alert ,Platform} from 'react-native';
+import { Alert, Platform } from 'react-native';
 
 export const HandleDownload = async (url) => {
-  if(Platform.OS == "web"){
+    if (Platform.OS == "web") {
         alert("Download Feature Will be Added Soon!....")
-     }
+    }
     Alert.alert("Downloading...")
-    const Fname = `SPACE_MEDIA${Math.floor(Math.random()*64646+2)}`
-    const result = await FileSystem.downloadAsync(url, FileSystem.documentDirectory + Fname,{
-        headers:{
-            "Myheaders":"myValues"
+    const Fname = `SPACE_MEDIA-${new Date().getTime()}`
+    const result = await FileSystem.downloadAsync(url, FileSystem.documentDirectory + Fname, {
+        headers: {
+            "Myheaders": "myValues"
         }
     })
-   save(result.uri, Fname,  result.headers["content-type"] || result.headers["Content-Type"])
+    save(result.uri, Fname, result.headers["content-type"] || result.headers["Content-Type"])
 }
 
 const save = async (uri, Fname, mimetype) => {
     if (Platform.OS == "android") {
         const permission = await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
-        if (permission.granted) { 
+        if (permission.granted) {
             const base64 = await FileSystem.readAsStringAsync(uri, { encoding: FileSystem.EncodingType.Base64 });
-            await FileSystem.StorageAccessFramework.createFileAsync(permission.directoryUri, Fname,mimetype)
+            await FileSystem.StorageAccessFramework.createFileAsync(permission.directoryUri, Fname, mimetype)
                 .then(async (uri) => {
                     Alert.alert("Done")
                     await FileSystem.writeAsStringAsync(uri, base64, { encoding: FileSystem.EncodingType.Base64 })
@@ -30,10 +30,10 @@ const save = async (uri, Fname, mimetype) => {
                 })
         }
     }
-    else{
+    else {
         shareAsync(uri)
     }
 }
-  
+
 
 

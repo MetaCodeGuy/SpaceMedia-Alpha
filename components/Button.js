@@ -18,8 +18,7 @@ export default function CButton({ title, navTo, sol }) {
 
       <Text style={{
         fontSize: 18,
-        color: 'white',
-        fontWeight: "900"
+        color: 'white', 
       }}>{title}</Text>
     </TouchableOpacity>
   );

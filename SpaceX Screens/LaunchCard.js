@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { Image } from '@rneui/themed';
 import React from 'react';
-import {   Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 
 export default function LaunchCard({ img, name, data }) {
   const nav = useNavigation()
@@ -9,15 +9,14 @@ export default function LaunchCard({ img, name, data }) {
     <TouchableOpacity
       onPress={() => nav.navigate("LaunchMedia", { data })}
       style={{
-        width: "48%",
-        borderRadius: 10, 
+        width: "45%",
+        borderRadius: 10,
         display: 'flex',
         borderRadius: 10,
-        backgroundColor:'black',
-        margin: 1,
-        borderColor:'white',
-        marginVertical:10,
-        borderWidth:1,
+        margin: 1, 
+        marginVertical: 10,
+        borderWidth: 1,
+        borderColor:'lightgray',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
         alignItems: 'center',
@@ -29,7 +28,7 @@ export default function LaunchCard({ img, name, data }) {
         resizeMode='cover'
         style={{ width: 80, height: 80 }}
       />
-      <Text style={{color:'white'}}>{name.slice(0, 25)}...</Text>
+      <Text style={{ }}>{name.slice(0, 25)}...</Text>
     </TouchableOpacity>
   );
 }

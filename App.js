@@ -11,16 +11,17 @@ import LaunchMedia from './SpaceX Screens/LaunchMedia';
 import FeedPage from './components/FeedPage';
 import Settings from './components/Settings';
 
+const Apod_url ='https://api.nasa.gov/planetary/apod?api_key=yTyu3EzXD6EpGpSqOhvdn9z4bjfxgBAmL2kQfho1'
 export const AppContext = createContext()
 const Stack = createNativeStackNavigator()
 export default function App() {
-  const GetApod = async () => {
-    fetch('https://api.nasa.gov/planetary/apod?api_key=yTyu3EzXD6EpGpSqOhvdn9z4bjfxgBAmL2kQfho1').then((res) => res.json())
-      .then((dat) => setapodData(dat))
-  }
-
 
   const [ApodData, setapodData] = useState({ Name: 'nithish' })
+  const GetApod = async () => {
+    fetch(Apod_url).then((res) => res.json())
+      .then((dat) => setapodData(dat))
+  } 
+ 
   useEffect(() => {
     GetApod();
   }, [])
@@ -34,8 +35,7 @@ export default function App() {
           <Stack.Screen name="apod"
             options={{ headerShown: false, statusBarColor: '#3A3A3A' }} component={APODBIG} />
           <Stack.Screen name="Rover"
-            options={{ headerShown: false, statusBarColor: '#3A3A3A' }} component={Rover} />
-
+            options={{ headerShown: false, statusBarColor: '#3A3A3A' }} component={Rover} /> 
           <Stack.Screen name="RoverInfo"
             options={{ headerShown: false, statusBarColor: '#3A3A3A' }} component={RoverInfo} />
           <Stack.Screen name="RocketInfo"
@@ -51,9 +51,7 @@ export default function App() {
           <Stack.Screen name="Settings"
             options={{ headerShown: false, statusBarColor: '#3A3A3A' }} component={Settings} />
 
-        </Stack.Navigator>
-
-
+        </Stack.Navigator> 
 
       </NavigationContainer>
 

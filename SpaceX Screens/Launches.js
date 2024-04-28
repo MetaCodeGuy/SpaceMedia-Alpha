@@ -24,8 +24,8 @@ export default function Launches() {
 
 
   return (
-    <View style={{ width: '100%', height: '100%', backgroundColor: 'black' }}>
-      <Header />
+    <View style={{ width: '100%', height: '100%'}}>
+   
       <Text style={{ color: 'white', textAlign: 'center' }}>Showing Page {StartIndex / 10 + 1} of {Math.floor(LaunchData?.length / 10)}</Text>
       <ScrollView style={{
         flex: 1,
