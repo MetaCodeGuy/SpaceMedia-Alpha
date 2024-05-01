@@ -13,7 +13,7 @@ export default function SearchFeedCard({ dat }) {
       nav.navigate("FeedPage", { dat })
     }}
       style={{
-        width: "100%",
+        width: "100%",       
         borderRadius: 10, margin: 1,
         height: 300,
         marginVertical: 10,
